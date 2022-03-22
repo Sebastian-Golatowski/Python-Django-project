@@ -29,6 +29,12 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=9)
     birth_date = models.DateField(null=True)
+    MEMBERSHIP_CHOICES = [
+        ('B', 'Bronze'),
+        ('S', "Silver"),
+        ('G', "Gold")
+    ]
+    membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default='B')
 
 
 class Address(models.Model):
