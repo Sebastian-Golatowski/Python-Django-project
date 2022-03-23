@@ -1,15 +1,15 @@
 from django.shortcuts import render
-
-from store.models import Product
+from django.db.models import Q
+from store.models import  Customer, Product
 
 # Create your views here.
 
 
 def sey_hello(request):
-    query_set = Product.objects.count()
-    query_set.filter()
+    query_set = Product.objects.raw("SELECT * FROM store_Product ORDER BY title")
 
     for product in query_set:
-        print(product)
-
-    return  render(request,"html.html")
+        print(product.title)
+    
+    
+    return  render(request,"html.html",{'name':'Ja','products':query_set})
