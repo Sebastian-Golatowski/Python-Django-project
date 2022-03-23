@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
+from store.models import Product
 
 # Create your views here.
 
 
 def sey_hello(request):
-    return render(request,"html.html",{"name":1})
+    query_set = Product.objects.count()
+    query_set.filter()
+
+    for product in query_set:
+        print(product)
+
+    return  render(request,"html.html")

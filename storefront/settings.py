@@ -91,7 +91,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'USER': 'root',
         'PASSWORD': '',
-        'NAME': 'django_store',
+        'NAME': 'storefront',
     }
 }
 
