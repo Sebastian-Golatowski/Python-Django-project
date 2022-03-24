@@ -1,5 +1,5 @@
+from django.db.models import Q
 from django.shortcuts import render
-
 from store.models import Product
 
 
@@ -7,7 +7,7 @@ from store.models import Product
 
 
 def sey_hello(request):
-    query_set = Product.objects.filter(id__range=(1, 4))
+    query_set = Product.objects.filter((Q(id__gt=14) | Q(inventory__lt=10)) & ~Q(unit_price__lt=20))
 
     for product in query_set:
         print(product.title)
