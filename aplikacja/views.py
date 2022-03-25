@@ -1,15 +1,17 @@
-from django.db.models import Q, F
+from django.db.models import Q, F ,Func
 from django.shortcuts import render
 from django.db.models import Value
-from store.models import Product,Order
+from django.db.models.functions import Concat
+from store.models import Product,Order,Customer
 
 
 # Create your views here.
 
 
 def sey_hello(request):
-    result=Product.objects.annotate(pies=F('id')+F('collection_id'),malap=Value(15))
-   
+    result=Customer.objects.annotate(full_name=Func(F('first_name'), Value(' '), F("last_name"),function='CONCAT'))
+    result=Customer.objects.annotate(full_name=Concat(F('first_name'), Value(' '), F("last_name")))
+
 
     
     return render(request, "html.html", {'name': 'Ja', 'result':result})
