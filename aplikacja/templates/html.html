@@ -12,10 +12,6 @@
     {%else%}
         <h1>Hello some random dude </h1>
     {% endif %}
-    <ul>
-        {%for order in orders%}
-        <li>{{order.id}} - {{order.customer.first_name}}</li>
-        {% endfor %}
-    </ul>
+    {{result}}
 </body>
 </html>
