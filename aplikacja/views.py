@@ -1,16 +1,22 @@
 from django.shortcuts import render
-from django.db.models import Value,Q, F ,Func,Count
-from django.db.models.functions import Concat
-from store.models import Product,Order,Customer
+from django.contrib.contenttypes.models import ContentType
+from store.models import Product
+from tags.models import TaggedItem
 
 
 # Create your views here.
 
 
 def sey_hello(request):
-    result=Customer.objects.annotate(count_order=Count("order")).order_by('-count_order')
+    content_type = ContentType.objects.get_for_model(Product)
 
+    queryset = TaggedItem.objects\
+        .select_related('tag')\
+        .filter(
+            content_type = content_type,
+            object_id = 1
+        )
 
 
     
-    return render(request, "html.html", {'name': 'Ja', 'result':result})
+    return render(request, "html.html", {'name': 'Ja'})
