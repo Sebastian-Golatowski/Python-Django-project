@@ -13,7 +13,6 @@ class Collection(models.Model):
         ordering = ['title']
 
 
-
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
@@ -31,7 +30,7 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.title
-    
+
     class Meta:
         ordering = ['title']
 
