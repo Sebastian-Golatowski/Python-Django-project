@@ -13,5 +13,10 @@
         <h1>Hello some random dude </h1>
     {% endif %}
     {{result}}
+    <ul>
+        {%for i in product%}
+        <li>{{i.title}}{{ i.unit_price}}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

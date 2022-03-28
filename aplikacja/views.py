@@ -1,12 +1,14 @@
-from django.db import connection
 from django.shortcuts import render
+from store.models import Product
+from django.shortcuts import render
+
+from store.models import Product
 
 
 # Create your views here.
 
 
 def sey_hello(request):
-    with connection.cursor() as cursor:
-        x = cursor.execute("SELECT * FROM store_product")
-
-    return render(request, "html.html", {'name': 'Ja'})
+    x = Product.objects.filter(id__gt=90)
+    
+    return render(request, "html.html", {'name': 'Ja', 'product': list(x)})
