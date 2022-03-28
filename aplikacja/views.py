@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from store.models import Product
 from django.shortcuts import render
-
 from store.models import Product
 
 
@@ -9,6 +8,6 @@ from store.models import Product
 
 
 def sey_hello(request):
-    x = Product.objects.filter(id__gt=90)
-    
+    x = Product.objects.values('title','collection__title')
+
     return render(request, "html.html", {'name': 'Ja', 'product': list(x)})
