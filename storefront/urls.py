@@ -17,7 +17,7 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 
-admin.site.site_header="header"
+admin.site.site_header="AdminPage"
 admin.site.index_title="title"
 
 urlpatterns = [
