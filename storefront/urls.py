@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path('aplikacja/', include('aplikacja.urls')),
+    path('store/',include('store.urls')),
 ]
