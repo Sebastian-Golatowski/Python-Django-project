@@ -1,4 +1,3 @@
-from decimal import Context
 from django.shortcuts import get_list_or_404
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
@@ -6,7 +5,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Product, Collection
 from .serializer import ProductSerializer
-from store import serializer
 
 @api_view()
 def product_list(request):
