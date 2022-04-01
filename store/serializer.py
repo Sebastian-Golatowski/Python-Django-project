@@ -1,13 +1,17 @@
 from dataclasses import field
 from decimal import Decimal
-from itertools import product
+from django.db.models import Count
 from store.models import Product, Collection
 from rest_framework import serializers
 
 class CollectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Collection
-        fields=['id','title']
+        fields=['id','title','products_count']
+    
+    products_count = serializers.IntegerField()
+
+    
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -49,3 +53,7 @@ class ProductSerializer(serializers.ModelSerializer):
         "unit_price":1,
         "collection":2
     }
+{
+    "title": "test",
+    "products_count": 0
+}
