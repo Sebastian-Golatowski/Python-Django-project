@@ -1,5 +1,6 @@
 from dataclasses import field
 from decimal import Decimal
+from turtle import title
 from django.db.models import Count
 from store.models import Product, Collection
 from rest_framework import serializers
@@ -9,7 +10,9 @@ class CollectionSerializer(serializers.ModelSerializer):
         model = Collection
         fields=['id','title','products_count']
     
-    products_count = serializers.IntegerField()
+    products_count = serializers.IntegerField(read_only=True)
+
+    
 
     
 
