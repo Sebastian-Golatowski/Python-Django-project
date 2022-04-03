@@ -1,7 +1,4 @@
-from dataclasses import field
 from decimal import Decimal
-from turtle import title
-from django.db.models import Count
 from store.models import Product, Collection
 from rest_framework import serializers
 
@@ -56,7 +53,7 @@ class ProductSerializer(serializers.ModelSerializer):
         "unit_price":1,
         "collection":2
     }
-{
-    "title": "test",
-    "products_count": 0
-}
+    
+    {
+        "title": "test"
+    }
