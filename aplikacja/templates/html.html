@@ -7,16 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    {%if name %}
-        <h1>Hello {{name}}</h1>
-    {%else%}
-        <h1>Hello some random dude </h1>
-    {% endif %}
-    {{result}}
-    <ul>
-        {%for i in product%}
-        <li>{{i.title}} {{ i.product__title}}</li>
-        {% endfor %}
-    </ul>
+{%if name %}
+<h1>Hello {{name}}</h1>
+{%else%}
+<h1>Hello some random dude </h1>
+{% endif %}
+{{result}}
+<ul>
+    {%for i in product%}
+    <li>{{i.title}} {{ i.product__title}}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
